@@ -2,6 +2,7 @@ package org.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -9,25 +10,20 @@ import java.util.Random;
 
 @Component
 public class MusicPlayer {
-    private ClassicalMusic classicalMusic;
-    private RockMusic rockMusic;
+    @Value("${musicPlayer.name}")
+    private String name;
 
-    @Autowired
-    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
-        this.classicalMusic = classicalMusic;
-        this.rockMusic = rockMusic;
-    }
-    public void playMusic(Janres janres){
-        Random random = new Random();
-        int randNum = random.nextInt(3);
-        if (janres == Janres.ROCK){
-            System.out.println(rockMusic.getSong().get(randNum));
-        }else{
-            System.out.println(classicalMusic.getSong().get(randNum));
-        }
+    @Value("${musicPlayer.volume}")
+    private int volume;
+
+    public String getName() {
+        return name;
     }
 
-    //    public String playMusic(){
+    public int getVolume() {
+        return volume;
+    }
+//        public String playMusic(){
 //        return "Playing: " + music.getSong();
 //
 //    }

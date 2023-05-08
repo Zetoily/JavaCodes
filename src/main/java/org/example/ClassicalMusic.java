@@ -1,5 +1,6 @@
 package org.example;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -8,12 +9,6 @@ import java.util.List;
 
 @Component
 public class ClassicalMusic implements Music{
-    private ClassicalMusic(){}
-
-    public static ClassicalMusic getClassicalMusic(){
-        System.out.println("Created ClassicalMusic");
-        return new ClassicalMusic();
-    }
 
     public void doMyInit(){
         System.out.println("Doing initialization...");
