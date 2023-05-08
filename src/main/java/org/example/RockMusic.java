@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
-@Component
+
 public class RockMusic implements Music{
     public void doMyInit(){
         System.out.println("Doing initialization...");
